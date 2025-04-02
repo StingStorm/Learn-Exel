@@ -1,30 +1,21 @@
 .header {
-  padding: 20px 0;
+  position: absolute;
+  top: 20px;
+  width: 100dvw;
 }
 
-.nav-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
+.logo {
+  cursor: pointer;
+}
 
-  @include media(tablet) {
-    justify-content: flex-start;
-  }
-
-  @include media(desktop) {
-    justify-content: flex-end;
+@include media(tablet) {
+  .header {
+    top: 29px;
   }
 }
 
-.nav-link {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  @include font(30, 40);
-  color: $_header_color;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: $_header_accent_color;
+@include media(desktop) {
+  .header {
+    top: 40px;
+  }
 }

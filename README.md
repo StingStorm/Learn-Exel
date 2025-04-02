@@ -1,2 +1,1 @@
-# Vanilla-vite-template
-
+# "Learn Exel like a pro" landing page

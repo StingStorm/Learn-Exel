@@ -1,0 +1,67 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  // transition: opacity $_main_transition, visibility $_main_transition;
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@include media(to-tablet) {
+  .modal {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    width: 360px;
+    padding: 117px 20px;
+    background-color: $_main_bg_color;
+
+    &-header {
+      position: absolute;
+      top: 29px;
+      left: 0;
+
+      display: flex;
+      justify-content: space-between;
+
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &__close-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      background: none;
+    }
+  }
+
+  .close-icon {
+    fill: $_main_color;
+  }
+}

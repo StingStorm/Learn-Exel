@@ -1,0 +1,74 @@
+.signup-form {
+  label:not(:last-of-type) {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  label:last-of-type {
+    margin-bottom: 32px;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}
+
+.phone {
+  &-label {
+    position: relative;
+  }
+
+  &-input {
+    padding-left: 48px;
+  }
+}
+
+.country-icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.checkbox {
+  appearance: none;
+  position: relative;
+
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $_main_accent_color;
+
+  cursor: pointer;
+
+  &:checked::after {
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url('../img/check.svg');
+    background-repeat: no-repeat;
+    background-position: 1px center;
+  }
+
+  &-label {
+    display: inline-flex;
+    align-items: start;
+    column-gap: 8px;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &-descr {
+    @include font(12, 16);
+
+    & a {
+      color: #3577f7;
+    }
+
+    & a:hover {
+      text-decoration: underline;
+    }
+  }
+}

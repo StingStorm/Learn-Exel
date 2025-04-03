@@ -30,16 +30,23 @@
 }
 
 .main-input {
+  font-family: inherit;
   @include font(16, 24);
   padding: 12px 16px;
   width: 100%;
   height: 48px;
+  border: none;
 
   background-color: #f2f4fa;
 }
 
 .main-input::placeholder {
   color: #767b8e;
+}
+
+.main-input:invalid {
+  color: red;
+  border: 1px solid red;
 }
 
 @include media(tablet) {
@@ -62,6 +69,12 @@
     padding-top: 20px;
     padding-bottom: 20px;
     height: 64px;
+  }
+}
+
+@include media(to-desktop) {
+  .page-title {
+    max-width: 85%;
   }
 }
 

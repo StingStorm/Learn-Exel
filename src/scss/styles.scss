@@ -1,6 +1,9 @@
 @import './general.scss';
 @import './header.scss';
 @import './hero.scss';
+@import './timer.scss';
+@import './form.scss';
+@import './modal.scss';
 
 :root {
   font-family: Montserrat, Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -16,4 +19,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
 }

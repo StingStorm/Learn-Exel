@@ -1,0 +1,32 @@
+.timer {
+  @include font(28, 32);
+  font-weight: 700;
+
+  display: flex;
+  column-gap: 8px;
+  margin: 0 auto;
+
+  &-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 2px;
+    min-width: 40px;
+  }
+
+  &-field__value[data-seconds] {
+    color: $_main_accent_color;
+  }
+
+  &-field__label {
+    font-weight: 600;
+    font-size: 8px;
+  }
+}
+
+@include media(desktop) {
+  .timer {
+    @include font(32, 36);
+  }
+}

@@ -1,4 +1,4 @@
-import { api } from '../api/instance.js';
+// import { api } from '../api/instance.js';
 
 const form = document.querySelector('.signup-form');
 
@@ -27,7 +27,8 @@ function updateFormPlacement() {
   }
 }
 
-async function handleSubmit(event) {
+// async function handleSubmit(event) {
+function handleSubmit(event) {
   event.preventDefault();
 
   const currForm = event.target;
@@ -45,13 +46,13 @@ async function handleSubmit(event) {
   localStorage.removeItem('form-state');
   resetFormState();
 
-  const response = await api.post('/post', {
-    name,
-    email,
-    phone,
-  });
+  // const response = await api.post('/post', {
+  //   name,
+  //   email,
+  //   phone,
+  // });
 
-  console.log(response.data.json);
+  // console.log(response.data.json);
   form.reset();
 }
 

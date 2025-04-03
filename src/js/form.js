@@ -2,7 +2,7 @@ import { api } from '../api/instance.js';
 
 const form = document.querySelector('.signup-form');
 
-const formData = {
+const formState = {
   name: '',
   email: '',
   phone: '',
@@ -36,14 +36,14 @@ async function handleSubmit(event) {
   const email = currForm.userEmail.value;
   const phone = currForm.phoneNumber.value;
 
-  if (!formData.name || !formData.email || !formData.phone) {
+  if (!formState.name || !formState.email || !formState.phone) {
     alert('Fill please all fields');
 
     return;
   }
 
   localStorage.removeItem('form-state');
-  resetFormData();
+  resetFormState();
 
   const response = await api.post('/post', {
     name,
@@ -56,11 +56,11 @@ async function handleSubmit(event) {
 }
 
 form.addEventListener('input', () => {
-  formData.name = form.elements.userName.value.trim();
-  formData.email = form.elements.userEmail.value.trim();
-  formData.phone = form.elements.phoneNumber.value.trim();
+  formState.name = form.elements.userName.value.trim();
+  formState.email = form.elements.userEmail.value.trim();
+  formState.phone = form.elements.phoneNumber.value.trim();
 
-  localStorage.setItem('form-state', JSON.stringify(formData));
+  localStorage.setItem('form-state', JSON.stringify(formState));
 });
 
 form.addEventListener('submit', handleSubmit);
@@ -73,16 +73,16 @@ function restoreFormFields() {
     form.elements.userEmail.value = parsedFormState.email;
     form.elements.phoneNumber.value = parsedFormState.phone;
 
-    formData.name = parsedFormState.name;
-    formData.email = parsedFormState.email;
-    formData.phone = parsedFormState.phone;
+    formState.name = parsedFormState.name;
+    formState.email = parsedFormState.email;
+    formState.phone = parsedFormState.phone;
   }
 }
 
-function resetFormData() {
-  const formDataKeys = Object.keys(formData);
+function resetFormState() {
+  const formStateKeys = Object.keys(formState);
 
-  for (const key of formDataKeys) {
-    formData[key] = '';
+  for (const key of formStateKeys) {
+    formState[key] = '';
   }
 }

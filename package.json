@@ -23,7 +23,7 @@
   "author": "Kalhanov Oleksandr <alexkalganov18@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.8.4",
+    "axios": "^1.6.2",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }

@@ -27,8 +27,7 @@ function updateFormPlacement() {
   }
 }
 
-// async function handleSubmit(event) {
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
   const currForm = event.target;
@@ -46,13 +45,25 @@ function handleSubmit(event) {
   localStorage.removeItem('form-state');
   resetFormState();
 
-  // const response = await api.post('/post', {
-  //   name,
-  //   email,
-  //   phone,
-  // });
+  try {
+    const response = await fetch('https://httpbin.org/post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+      }),
+    });
 
-  // console.log(response.data.json);
+    const data = await response.json();
+    console.log(data.json);
+  } catch (error) {
+    console.error('Error submitting form:', error);
+  }
+
   form.reset();
 }
 

@@ -13,7 +13,15 @@ function updateAllTimers(endTime) {
   const timerElements = document.querySelectorAll('.timer');
 
   const now = new Date().getTime();
-  const timeLeft = endTime - now;
+  let timeLeft = endTime - now;
+
+  if(timeLeft <= 0) {
+    const monthShift = new Date();
+    monthShift.setMonth(now.getMonth() + 1);
+    monthShift.setHours(19, 30, 0, 0);
+    endTime = monthShift.getTime();
+    timeLeft = endTime - now;
+  }
 
   const timerValues = convertMs(timeLeft);
 
